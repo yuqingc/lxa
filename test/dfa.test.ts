@@ -1,4 +1,4 @@
-import { SingleInputState, UnionState, ClosureState, ConcatState } from '../src/fas/state';
+import { SingleInputState, UnionState, ClosureState, ConcatState, epsilon } from '../src/fas/state';
 import { DFA } from '../src/fas/dfa';
 import { NFA } from '../src/fas/nfa';
 
@@ -27,4 +27,34 @@ test('(1|0)*1 should work', () => {
   expect(dfa.test('a')).toBe(false);
   expect(dfa.test('111010110')).toBe(false);
   expect(dfa.test('00000')).toBe(false);
+})
+
+// http(s|epsilon)
+// This does not work. Need fix!!!!
+test.only('https? should work', () => {
+  const final = new ConcatState(
+    new ConcatState(
+      new ConcatState(
+        new ConcatState(
+          new SingleInputState('h'),
+          new SingleInputState('t'),
+        ),
+        new SingleInputState('t'),
+      ),
+      new SingleInputState('p')
+    ),
+    new ConcatState(
+      new SingleInputState('s', true),
+      new SingleInputState(epsilon, true)
+    )
+  );
+  const dfa: DFA = new NFA(final).toDFA();
+
+  expect(dfa.test('http')).toBe(true);
+  expect(dfa.test('https')).toBe(true);
+
+
+  expect(dfa.test('https://')).toBe(false);
+  expect(dfa.test('htt')).toBe(false);
+  expect(dfa.test('hello')).toBe(false);
 })
