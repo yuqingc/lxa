@@ -1,0 +1,31 @@
+{
+  "name": "lxa",
+  "version": "0.0.1",
+  "description": "A lexical analysis / regular expression engine written in TypeScript",
+  "main": "dist/index.js",
+  "keywords": [
+    "lexical analysis",
+    "regular expression",
+    "DFA",
+    "NFA"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -r ./dist/* && tsc",
+    "start": "node dist"
+  },
+  "author": "Matt",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuqingc/lxa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yuqingc/lxa/issues"
+  },
+  "homepage": "https://github.com/yuqingc/lxa#readme"
+}
