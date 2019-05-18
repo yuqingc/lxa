@@ -10,13 +10,16 @@
     "NFA"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "rm -r ./dist/* && tsc",
     "start": "node dist"
   },
   "author": "Matt",
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^24.0.13",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.4.5"
   },
   "dependencies": {},

@@ -12,11 +12,12 @@ export function eqSet<T>(as: Set<T>, bs: Set<T>) {
   return true;
 }
 
-export function setHasSet<T>(container: Set<Set<T>>, inputSet: Set<T>) {
-  for (const setItem of container) {
-    if (eqSet(setItem, inputSet)) {
-      return true;
-    }
-  }
-  return false;
-}
+// TODO: Useless, delete it!
+// export function setHasSet<T>(container: Set<Set<T>>, inputSet: Set<T>) {
+//   for (const setItem of container) {
+//     if (eqSet(setItem, inputSet)) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }

@@ -50,23 +50,12 @@ function eqSet(as, bs) {
     return true;
 }
 exports.eqSet = eqSet;
-function setHasSet(container, inputSet) {
-    var e_3, _a;
-    try {
-        for (var container_1 = __values(container), container_1_1 = container_1.next(); !container_1_1.done; container_1_1 = container_1.next()) {
-            var setItem = container_1_1.value;
-            if (eqSet(setItem, inputSet)) {
-                return true;
-            }
-        }
-    }
-    catch (e_3_1) { e_3 = { error: e_3_1 }; }
-    finally {
-        try {
-            if (container_1_1 && !container_1_1.done && (_a = container_1.return)) _a.call(container_1);
-        }
-        finally { if (e_3) throw e_3.error; }
-    }
-    return false;
-}
-exports.setHasSet = setHasSet;
+// TODO: Useless, delete it!
+// export function setHasSet<T>(container: Set<Set<T>>, inputSet: Set<T>) {
+//   for (const setItem of container) {
+//     if (eqSet(setItem, inputSet)) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
