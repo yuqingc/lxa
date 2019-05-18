@@ -30,8 +30,7 @@ test('(1|0)*1 should work', () => {
 })
 
 // http(s|epsilon)
-// This does not work. Need fix!!!!
-test.only('https? should work', () => {
+test('https? should work', () => {
   const final = new ConcatState(
     new ConcatState(
       new ConcatState(
@@ -43,9 +42,10 @@ test.only('https? should work', () => {
       ),
       new SingleInputState('p')
     ),
-    new ConcatState(
-      new SingleInputState('s', true),
-      new SingleInputState(epsilon, true)
+    new UnionState(
+      new SingleInputState('s'),
+      new SingleInputState(epsilon),
+      true
     )
   );
   const dfa: DFA = new NFA(final).toDFA();
