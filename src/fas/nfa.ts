@@ -1,4 +1,4 @@
-import { StateOp } from './state';
+import { StateOp } from './stateOps';
 import { DFAStatesSet, DFA } from './dfa';
 
 export class NFA {

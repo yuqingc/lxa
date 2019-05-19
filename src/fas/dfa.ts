@@ -1,5 +1,6 @@
-import { State, Epsilon } from './state';
+import { State } from './state';
 import { eqSet, mergeSetInto } from '../utils';
+import { Epsilon } from './epsilon';
 
 
 export class DFAStatesSet {

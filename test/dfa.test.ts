@@ -1,6 +1,5 @@
-import { SingleInputState, UnionState, ClosureState, ConcatState, epsilon } from '../src/fas/state';
-import { DFA } from '../src/fas/dfa';
-import { NFA } from '../src/fas/nfa';
+import { stateOps, epsilon, DFA, NFA, concatMultipleStates, unionMultipleStates } from '../src';
+const { SingleInputState, UnionState, ClosureState, ConcatState } = stateOps;
 
 test('(1|0)*1 should work', () => {
   const final = new ConcatState(
@@ -57,4 +56,28 @@ test('https? should work', () => {
   expect(dfa.test('https://')).toBe(false);
   expect(dfa.test('htt')).toBe(false);
   expect(dfa.test('hello')).toBe(false);
+})
+
+// .jpe?g
+test('.jpe?g work', () => {
+  const final = concatMultipleStates(
+    new SingleInputState('.'),
+    new SingleInputState('j'),
+    new SingleInputState('p'),
+    unionMultipleStates({states: [
+      new SingleInputState('e'),
+      new SingleInputState(epsilon),
+    ]}),
+    new SingleInputState('g', true)
+  );
+  const dfa: DFA = new NFA(final).toDFA();
+
+  expect(dfa.test('.jpg')).toBe(true);
+  expect(dfa.test('.jpeg')).toBe(true);
+  expect(dfa.test('')).toBe(false);
+  expect(dfa.test('jpg')).toBe(false);
+  expect(dfa.test('jpeg')).toBe(false);
+  expect(dfa.test('jp')).toBe(false);
+  expect(dfa.test('jpgg')).toBe(false);
+  expect(dfa.test('png')).toBe(false);
 })
