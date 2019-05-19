@@ -1,4 +1,5 @@
-import { State, Epsilon } from './state';
+import { State } from './state';
+import { Epsilon } from './epsilon';
 export declare class DFAStatesSet {
     states: Set<State>;
     private nextStatesSetMap;

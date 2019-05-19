@@ -1,4 +1,4 @@
-import { StateOp } from './state';
+import { StateOp } from './stateOps';
 import { DFA } from './dfa';
 export declare class NFA {
     private stateOp;

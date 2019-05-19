@@ -1,19 +1,24 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var stateOps = __importStar(require("./fas/stateOps"));
+exports.stateOps = stateOps;
+__export(require("./fas/combineStateOps"));
 var state_1 = require("./fas/state");
+exports.State = state_1.State;
+var epsilon_1 = require("./fas/epsilon");
+exports.epsilon = epsilon_1.default;
 var nfa_1 = require("./fas/nfa");
-// (1|0)*1
-var one = new state_1.SingleInputState('1');
-var zero = new state_1.SingleInputState('0');
-var oneOrZero = new state_1.UnionState(one, zero);
-var oneOrZeroStar = new state_1.ClosureState(oneOrZero);
-var final = new state_1.ConcatState(oneOrZeroStar, new state_1.SingleInputState('1', true));
-var dfa = new nfa_1.NFA(final).toDFA();
-console.log(dfa.test('1'));
-console.log('-------------', dfa.test('00000000001'));
-console.log('-------------', dfa.test('10101010000101'));
-console.log('-------------', dfa.test('01010011000101011'));
-console.log('-------------', dfa.test('010100110001010110'));
-console.log('-------------', dfa.test(''));
-console.log('-------------', dfa.test('0000000000000000'));
-console.log('-------------', dfa.test('11111111111'));
+exports.NFA = nfa_1.NFA;
+var dfa_1 = require("./fas/dfa");
+exports.DFA = dfa_1.DFA;
+exports.DFAStatesSet = dfa_1.DFAStatesSet;
