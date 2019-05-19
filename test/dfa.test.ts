@@ -59,7 +59,7 @@ test('https? should work', () => {
 })
 
 // .jpe?g
-test('.jpe?g work', () => {
+test('.jpe?g should work', () => {
   const final = concatMultipleStates(
     new SingleInputState('.'),
     new SingleInputState('j'),

@@ -1,4 +1,4 @@
-import { State, InputType} from './state';
+import { State, InputType } from './state';
 import epsilon from './epsilon';
 
 export class StateOp {
