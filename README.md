@@ -3,10 +3,10 @@
 A lexical analysis / regular expression engine written in TypeScript
 
 [![npm](https://img.shields.io/npm/v/lxa.svg)](https://www.npmjs.com/package/lxa)
-![Codecov](https://img.shields.io/codecov/c/github/yuqingc/lxa.svg)
-![GitHub issues](https://img.shields.io/github/issues/yuqingc/lxa.svg)
-![Travis (.org)](https://img.shields.io/travis/yuqingc/lxa.svg)
-![GitHub](https://img.shields.io/github/license/yuqingc/lxa.svg)
+[![Codecov](https://img.shields.io/codecov/c/github/yuqingc/lxa.svg)](https://codecov.io/gh/yuqingc/lxa)
+[![GitHub issues](https://img.shields.io/github/issues/yuqingc/lxa.svg)](https://github.com/yuqingc/lxa/issues)
+[![Travis (.org)](https://img.shields.io/travis/yuqingc/lxa.svg)](https://travis-ci.com/yuqingc/lxa)
+[![GitHub](https://img.shields.io/github/license/yuqingc/lxa.svg)](https://github.com/yuqingc/lxa/blob/master/LICENSE)
 
 ## Get started
 
