@@ -81,3 +81,40 @@ test('.jpe?g should work', () => {
   expect(dfa.test('jpgg')).toBe(false);
   expect(dfa.test('png')).toBe(false);
 })
+
+// (a|b)*cd?
+test ('(a|b)*cd? should work', () => {
+  // state for single character 'a' and 'b'
+  const state_for_a = new SingleInputState('a');
+  const state_for_b = new SingleInputState('b');
+
+  // and generate the union of 'a' and 'b', (a|b)
+  const union_of_a_and_b = new UnionState(state_for_a, state_for_b);
+
+  // and then the closure `(a|b)*`
+  const union_of_a_and_b_closure = new ClosureState(union_of_a_and_b);
+
+  // Before we generate the final expression,
+  // we generate the union of 'd' and empty string,
+  // representing `d?` or `d|ε`
+  const d_or_empty = new UnionState(
+    new SingleInputState('d'),
+    new SingleInputState(epsilon),
+    // `true` means this is the final accepted state.
+    // Refer to API doc for more detail.
+    true,
+  );
+
+  // Finally, we concatenate them all
+  const final = concatMultipleStates(
+    union_of_a_and_b_closure, 
+    new SingleInputState('c'),
+    d_or_empty
+  );
+  const dfa = new NFA(final).toDFA();
+
+  expect(dfa.test('aaac')).toBe(true);
+  expect(dfa.test('abcd')).toBe(true);
+  expect(dfa.test('bbbcd')).toBe(true);
+  expect(dfa.test('ad')).toBe(false);
+})

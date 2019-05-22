@@ -8,6 +8,8 @@ A lexical analysis / regular expression engine written in TypeScript
 [![Travis (.org)](https://img.shields.io/travis/yuqingc/lxa.svg)](https://travis-ci.com/yuqingc/lxa)
 [![GitHub](https://img.shields.io/github/license/yuqingc/lxa.svg)](https://github.com/yuqingc/lxa/blob/master/LICENSE)
 
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+
 ## Get started
 
 ### Install with NPM or Yarn
@@ -56,7 +58,7 @@ The entire expression is the concatenation of the following three expressions
     const state_for_b = new SingleInputState('b');
 
     // and generate the union of 'a' and 'b', (a|b)
-    const union_of_a_and_b = new UnionState(a, b);
+    const union_of_a_and_b = new UnionState(state_for_a, state_for_b);
 
     // and then the closure `(a|b)*`
     const union_of_a_and_b_closure = new ClosureState(union_of_a_and_b);
@@ -182,5 +184,3 @@ Checks if the input string is of the expression language
 ## License
 
 Under the [MIT License](https://github.com/yuqingc/lxa/blob/master/LICENSE).
-
-Support [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)

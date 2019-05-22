@@ -2,9 +2,9 @@ language: node_js
 node_js:
   - "10"
 before_install:
-  - npm install codecov -g
+  - yarn global codecov
 scripts:
-  - npm run build
+  - yarn run build
 after_success:
-  - npm run test
+  - yarn run test
   - codecov
