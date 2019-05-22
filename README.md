@@ -2,6 +2,12 @@
 
 A lexical analysis / regular expression engine written in TypeScript
 
+[![npm](https://img.shields.io/npm/v/lxa.svg)](https://www.npmjs.com/package/lxa)
+![Codecov](https://img.shields.io/codecov/c/github/yuqingc/lxa.svg)
+![GitHub issues](https://img.shields.io/github/issues/yuqingc/lxa.svg)
+![Travis (.org)](https://img.shields.io/travis/yuqingc/lxa.svg)
+![GitHub](https://img.shields.io/github/license/yuqingc/lxa.svg)
+
 ## Get started
 
 ### Install with NPM or Yarn
@@ -176,3 +182,5 @@ Checks if the input string is of the expression language
 ## License
 
 Under the [MIT License](https://github.com/yuqingc/lxa/blob/master/LICENSE).
+
+Support [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
