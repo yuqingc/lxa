@@ -169,7 +169,7 @@ Unites multiple states together. Shorthand for nesting constructors of `stateOps
 
 #### `NFA.prototype.toDFA`
 
-`NFA.prototype.toDFA.toDFA(): DFA`
+`NFA.prototype.toDFA(): DFA`
 
 Returns a `DFA` instance generating from the `NFA` instance caller
 
